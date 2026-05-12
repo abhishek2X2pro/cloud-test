@@ -35,5 +35,4 @@ jobs:
           REMOTE_USER: ubuntu
           SOURCE: "hrms-admin-panel/build/"
           TARGET: "/var/www/html/"
-```
 
