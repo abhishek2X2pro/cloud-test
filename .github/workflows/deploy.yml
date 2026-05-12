@@ -1,3 +1,4 @@
+```yaml
 name: Deploy Frontend
 
 on:
@@ -20,9 +21,11 @@ jobs:
 
       - name: Install dependencies
         run: npm install
+        working-directory: ./hrms-admin-panel
 
       - name: Build project
         run: npm run build
+        working-directory: ./hrms-admin-panel
 
       - name: Deploy to EC2
         uses: easingthemes/ssh-deploy@main
@@ -30,5 +33,7 @@ jobs:
           SSH_PRIVATE_KEY: ${{ secrets.EC2_KEY }}
           REMOTE_HOST: ${{ secrets.EC2_HOST }}
           REMOTE_USER: ubuntu
-          SOURCE: "build/"
+          SOURCE: "hrms-admin-panel/build/"
           TARGET: "/var/www/html/"
+```
+
